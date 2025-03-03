@@ -4,6 +4,11 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Category;
+use App\Models\Brand;
+use App\Models\Product;
+use App\Models\Order;
+use App\Models\Review;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,7 +17,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Call all the seeders
+        // Call specific seeders for structured data
         $this->call([
             CategoriesSeeder::class,
             BrandsSeeder::class,
@@ -22,7 +27,12 @@ class DatabaseSeeder extends Seeder
             ReviewsSeeder::class,
         ]);
 
-        // Optional: Create dummy users using factories
+        // Generate additional dummy data using factories
         User::factory(10)->create();
+        Category::factory(5)->create();
+        Brand::factory(5)->create();
+        Product::factory(20)->create();
+        Order::factory(10)->create();
+        Review::factory(30)->create();
     }
 }
